@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/nomad-coder/msa
+          search-paths:
+            - configs
+#         search-paths: '*,{application},config/{application}, config/, config/*'
+logging:
+  level:
+    org.springframework: debug
