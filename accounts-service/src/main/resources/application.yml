@@ -4,5 +4,8 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
-    refresh:
-      enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh

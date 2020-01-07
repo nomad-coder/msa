@@ -1,5 +1,6 @@
 rootProject.name = "epic-quests-msa"
 
-include ':config-server'
+include ':config-server', ':accounts-service'
 
 project(':config-server').projectDir = new File('./config-server')
+project(':accounts-service').projectDir = new File('./accounts-service')
