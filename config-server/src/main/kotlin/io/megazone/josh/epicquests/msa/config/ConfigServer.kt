@@ -1,4 +1,4 @@
-package io.megazone.josh.epicquests.msa
+package io.megazone.josh.epicquests.msa.config
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
