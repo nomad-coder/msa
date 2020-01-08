@@ -9,8 +9,5 @@ spring:
           search-paths:
             - configs
 #         search-paths: '*,{application},config/{application}, config/, config/*'
-logging:
-  level:
-    org.springframework: debug
 server:
   port: 8888
