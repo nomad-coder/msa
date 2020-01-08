@@ -1,8 +1,5 @@
 server:
   port: 8761
-spring:
-  freemarker:
-    check-template-location: false
 eureka:
   instance:
     hostname: localhost
