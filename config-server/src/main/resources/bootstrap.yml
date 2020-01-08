@@ -6,8 +6,18 @@ spring:
       server:
         git:
           uri: https://github.com/nomad-coder/msa
+#         search-paths: '*,{application},config/{application}, config/, config/*'
           search-paths:
             - configs
-#         search-paths: '*,{application},config/{application}, config/, config/*'
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
 server:
   port: 8888
