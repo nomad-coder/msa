@@ -1,2 +1,2 @@
-global:
-  author: josh-hong
+bootstrap:
+  message: hello cloud
