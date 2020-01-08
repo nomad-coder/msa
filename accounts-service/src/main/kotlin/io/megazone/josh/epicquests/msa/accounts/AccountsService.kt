@@ -36,6 +36,7 @@ class RouteConfig(
 			router {
 				GET("/", handler::list)
 				GET("/author", handler::author)
+				GET("/level", handler::loggingLevel)
 			}
 		)
 	}
@@ -49,7 +50,12 @@ class AccountsHandler {
 	@Value("\${global.author}")
 	private val globalAuthor: String? = null
 
+	@Value("\${logging.level.org.springframework.web}")
+	private val loggingLevel: String? = null
+
 	fun author(request: ServerRequest): Mono<ServerResponse> = ok().body(fromValue(globalAuthor!!))
+
+	fun loggingLevel(request: ServerRequest): Mono<ServerResponse> = ok().body(fromValue(loggingLevel!!))
 
 	fun list(request: ServerRequest): Mono<ServerResponse> = ok()
 			.body(fromValue(listOf("Josh", "Yoon")))
