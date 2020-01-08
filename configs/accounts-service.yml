@@ -16,4 +16,4 @@ management:
 
 logging:
   level:
-    org.springframework.web: info
+    org.springframework.web: debug
