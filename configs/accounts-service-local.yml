@@ -4,6 +4,15 @@ spring:
     port: 5672
     username: guest
     password: guest
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:msa
+    username: sa
+    password: sa
+  jpa:
+    show-sql: true
+  flyway:
+    locations: ["classpath:db/migration", "classpath:db/sample-data"]
 
 eureka:
   client:
