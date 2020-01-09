@@ -30,19 +30,6 @@ fun main(args: Array<String>) {
 }
 
 @Configuration
-@Profile("local")
-class LocalConfig {
-
-	@Bean(initMethod = "start", destroyMethod = "stop")
-	fun h2Server(): Server {
-		val server = Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", "9092")
-
-		return server
-	}
-
-}
-
-@Configuration
 class RouteConfig(
 	private val handler: AccountsHandler
 ) {
