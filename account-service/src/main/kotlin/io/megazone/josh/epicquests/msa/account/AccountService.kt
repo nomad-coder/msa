@@ -23,7 +23,7 @@ fun main(args: Array<String>) {
 }
 
 @RestController
-@RequestMapping("/accounts")
+@RequestMapping("/")
 class AccountController(
 	private val repo: AccountRepository
 ) {
