@@ -16,10 +16,10 @@ import javax.persistence.Table
 
 @EnableEurekaClient
 @SpringBootApplication
-class AccountsService
+class AccountService
 
 fun main(args: Array<String>) {
-	runApplication<AccountsService>(*args)
+	runApplication<AccountService>(*args)
 }
 
 @RestController
