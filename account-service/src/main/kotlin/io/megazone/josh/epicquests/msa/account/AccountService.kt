@@ -29,24 +29,16 @@ class AccountController(
 ) {
 
 	@PostMapping
-	fun create(@RequestBody account: Account): Account {
-		return repo.save(account)
-	}
+	fun create(@RequestBody account: Account) = repo.save(account)
 
 	@GetMapping
-	fun list(): List<Account> {
-		return repo.findAll()
-	}
+	fun list(): List<Account> = repo.findAll()
 
 	@GetMapping("/{id}")
-	fun details(@PathVariable id: String): Account {
-		return repo.findById(id).get()
-	}
+	fun details(@PathVariable id: String) = repo.findById(id).get()
 
 	@DeleteMapping("/{id}")
-	fun delete(@PathVariable id: String) {
-		return repo.deleteById(id)
-	}
+	fun delete(@PathVariable id: String) = repo.deleteById(id)
 
 }
 
@@ -58,9 +50,7 @@ class TestController(
 ) {
 
 	@GetMapping("/author")
-	fun author(): String {
-		return globalAuthor
-	}
+	fun author() = globalAuthor
 
 }
 
