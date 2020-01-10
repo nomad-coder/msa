@@ -19,7 +19,8 @@ zuul:
   host:
     connect-timeout-millis: 5000
     socket-timeout-millis: 5000
-  ignored-services: '*'
+  ignored-services: '*'   # routes에 정의되지 않은 모든 요청은 무시 함
+  sensitive-headers: '*'  # header의 모든 정보를 bypass 함
   routes:
     account-service:
       path: /accounts/**
