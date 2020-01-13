@@ -9,10 +9,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 import java.util.*
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Lob
-import javax.persistence.Table
+import javax.persistence.*
 
 @EnableEurekaClient
 @SpringBootApplication
@@ -34,15 +31,26 @@ data class Article(
 	@Lob
 	var content: String? = null,
 
-	val authorId: String? = null,
-
-	val authorName: String? = null,
+	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = [CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH])
+	@JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "ID")
+	var author: Account? = null,
 
 	@CreationTimestamp
 	val createdAt: Date? = Date(),
 
 	@UpdateTimestamp
 	var updatedAt: Date? = null
+
+)
+
+@Entity
+@Table(name = "ACCOUNTS")
+data class Account(
+
+	@Id
+	val id: String? = null,
+
+	var name: String? = null
 
 )
 
