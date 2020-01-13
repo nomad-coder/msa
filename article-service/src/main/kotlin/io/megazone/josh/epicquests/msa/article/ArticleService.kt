@@ -11,6 +11,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource
 import java.util.*
 import javax.persistence.Entity
 import javax.persistence.Id
+import javax.persistence.Lob
 import javax.persistence.Table
 
 @EnableEurekaClient
@@ -30,6 +31,7 @@ data class Article(
 
 	var title: String? = null,
 
+	@Lob
 	var content: String? = null,
 
 	val authorId: String? = null,
@@ -44,5 +46,5 @@ data class Article(
 
 )
 
-@RepositoryRestResource(path = "/")
+@RepositoryRestResource(path = "articles")
 interface ArticleRepository : JpaRepository<Article, String>
