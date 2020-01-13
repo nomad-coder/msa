@@ -36,7 +36,6 @@ class SyncController(
 
 }
 
-
 @Entity
 @Table(name = "ARTICLES")
 data class Article(
@@ -75,4 +74,4 @@ data class Account(
 @RepositoryRestResource(path = "articles")
 interface ArticleRepository : JpaRepository<Article, String>
 
-interface AccountRepository: JpaRepository<Account, String>
+interface AccountRepository : JpaRepository<Account, String>
