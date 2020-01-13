@@ -6,7 +6,7 @@ spring:
     password: guest
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:msa
+    url: jdbc:h2:mem:msa-account
     username: sa
     password: sa
   jpa:
