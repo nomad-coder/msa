@@ -105,7 +105,8 @@ class AccountService(
 			this.name = name
 		}
 		repo.save(account)
-		articleService.syncAccountName(account)
+
+		articleService.syncAccountName(account)	//TODO : 이런걸 메시지로 해야 하는 건가!?
 	}
 
 }
