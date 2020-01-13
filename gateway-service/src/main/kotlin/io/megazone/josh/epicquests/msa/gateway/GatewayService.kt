@@ -39,6 +39,7 @@ class PreFilter: ZuulFilter() {
 	}
 
 	override fun shouldFilter(): Boolean {
+		//filter 의 실행 여부
 		return true
 	}
 
