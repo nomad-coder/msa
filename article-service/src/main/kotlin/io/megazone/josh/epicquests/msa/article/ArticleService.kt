@@ -8,6 +8,10 @@ import org.springframework.boot.runApplication
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
+import org.springframework.web.bind.annotation.PatchMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 import java.util.*
 import javax.persistence.*
 
@@ -18,6 +22,20 @@ class ArticleService
 fun main(args: Array<String>) {
 	runApplication<ArticleService>(*args)
 }
+
+@RestController
+@RequestMapping("/articles/sync")
+class SyncController(
+	private val accountRepo: AccountRepository
+) {
+
+	@PatchMapping("/account-name")
+	fun syncAccountName(@RequestBody account: Account) {
+		accountRepo.save(account)
+	}
+
+}
+
 
 @Entity
 @Table(name = "ARTICLES")
@@ -56,3 +74,5 @@ data class Account(
 
 @RepositoryRestResource(path = "articles")
 interface ArticleRepository : JpaRepository<Article, String>
+
+interface AccountRepository: JpaRepository<Account, String>
