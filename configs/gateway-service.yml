@@ -26,6 +26,10 @@ zuul:
       path: /accounts/**
       serviceId: account-service
       stripPrefix: true
+    article-service:
+      path: /articles/**
+      serviceId: article-service
+      stripPrefix: false
 
 management:
   endpoints:
