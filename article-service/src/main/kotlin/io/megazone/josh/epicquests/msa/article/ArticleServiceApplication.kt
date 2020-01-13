@@ -17,10 +17,10 @@ import javax.persistence.*
 
 @EnableEurekaClient
 @SpringBootApplication
-class ArticleService
+class ArticleServiceApplication
 
 fun main(args: Array<String>) {
-	runApplication<ArticleService>(*args)
+	runApplication<ArticleServiceApplication>(*args)
 }
 
 @RestController
@@ -35,6 +35,7 @@ class SyncController(
 	}
 
 }
+
 
 @Entity
 @Table(name = "ARTICLES")
