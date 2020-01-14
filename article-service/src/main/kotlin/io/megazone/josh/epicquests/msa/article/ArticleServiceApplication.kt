@@ -1,5 +1,7 @@
 package io.megazone.josh.epicquests.msa.article
 
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import net.bytebuddy.utility.RandomString
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
@@ -61,6 +63,7 @@ data class Article(
 
 )
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name = "ACCOUNTS")
 data class Account(

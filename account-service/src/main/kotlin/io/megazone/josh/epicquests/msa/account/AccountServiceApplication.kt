@@ -1,6 +1,7 @@
 package io.megazone.josh.epicquests.msa.account
 
 import io.megazone.josh.epicquests.msa.account.feign.ArticleService
+import io.megazone.josh.epicquests.msa.account.message.MessageSender
 import net.bytebuddy.utility.RandomString
 import org.hibernate.annotations.CreationTimestamp
 import org.springframework.beans.factory.annotation.Value
@@ -97,7 +98,8 @@ data class Account(
 @Service
 class AccountService(
 	private val repo: AccountRepository,
-	private val articleService: ArticleService
+	private val articleService: ArticleService,
+	private val messageSender: MessageSender
 ) {
 
 	fun updateName(id: String, name: String) {
@@ -106,7 +108,8 @@ class AccountService(
 		}
 		repo.save(account)
 
-		articleService.syncAccountName(account)    //TODO : 이런걸 메시지로 해야 하는 건가!?
+//		articleService.syncAccountName(account)	//use feign
+		messageSender.syncName(account)			//use messaging
 	}
 
 }
