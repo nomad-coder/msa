@@ -1,5 +1,4 @@
 dependencies {
-
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
@@ -14,7 +13,7 @@ dependencies {
     compile 'com.h2database:h2'
     implementation 'org.flywaydb:flyway-core'
 
-    implementation 'io.github.openfeign:feign-httpclient:10.4.0'
+    implementation 'io.github.openfeign:feign-httpclient:10.4.0'        //PATCH, DELETE 등 Invalid Method 들을 사용하기 위해 넣어야함.
 
     testImplementation 'io.projectreactor:reactor-test'
 }

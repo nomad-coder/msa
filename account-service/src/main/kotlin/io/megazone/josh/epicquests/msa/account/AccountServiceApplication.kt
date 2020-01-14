@@ -50,7 +50,7 @@ class AccountController(
 	@PatchMapping("/{id}/name")
 	fun patchName(@PathVariable id: String,
 				  @Validated(value = [ValidationGroups.UpdateName::class]) @RequestBody account: Account, bindingResult: BindingResult) {
-		if(bindingResult.hasErrors()) {
+		if (bindingResult.hasErrors()) {
 			throw BindException(bindingResult)
 		}
 		service.updateName(id, account.name!!)
@@ -106,7 +106,7 @@ class AccountService(
 		}
 		repo.save(account)
 
-		articleService.syncAccountName(account)	//TODO : 이런걸 메시지로 해야 하는 건가!?
+		articleService.syncAccountName(account)    //TODO : 이런걸 메시지로 해야 하는 건가!?
 	}
 
 }
@@ -115,6 +115,6 @@ interface AccountRepository : JpaRepository<Account, String>
 
 object ValidationGroups {
 
-	interface UpdateName: Default
+	interface UpdateName : Default
 
 }
