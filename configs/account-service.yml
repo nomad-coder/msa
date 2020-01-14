@@ -19,6 +19,9 @@ spring:
       hibernate.enable_lazy_load_no_trans: true
   flyway:
     locations: ["classpath:db/migration"]
+feign:
+  hystrix:
+    enabled: true
 
 server:
   port: 0
