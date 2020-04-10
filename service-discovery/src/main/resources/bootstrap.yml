@@ -4,3 +4,5 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+  freemarker:
+    prefer-file-system-access: false  #이걸 안하면 구동할 때 SpringTemplateLoader 에서 오류를 찍찍 내뱉는다.
